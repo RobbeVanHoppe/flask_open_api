@@ -9,7 +9,10 @@
 
 ### Running the app
 
-`python app.py`
+`docker build -t test-flask-app .`
+
+`docker run -p 80:8000 test-flask-app`
+
 
 ### Swagger UI
-http://localhos:8000/ui/
+http://localhost/ui/

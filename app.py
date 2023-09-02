@@ -8,7 +8,7 @@ app.add_api("backend.yaml")
 async def run_server():
     from hypercorn.config import Config
     config = Config()
-    config.bind = ["127.0.0.1:8000"]
+    config.bind = ["0.0.0.0:8000"]
 
     from hypercorn.asyncio import serve
     await serve(app, config)
