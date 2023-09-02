@@ -1,0 +1,56 @@
+openapi: "3.0.0"
+info:
+  title: Minimal Connexion App
+  version: 1.0.0
+
+paths:
+  /:
+    get:
+      operationId: impl.get_basic
+      responses:
+        200:
+          description: Test
+  /greeting:
+    get:
+      operationId: impl.get_greeting
+      responses:
+        200:
+          description: Greeting response
+  /user:
+    get:
+      summary: Get a list of all users
+      operationId: impl.get_users
+      responses:
+        '200':
+          description: List of all users
+    post:
+      summary: Create a user
+      operationId: impl.create_user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User created successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        firstname:
+          type: string
+          example: 'General'
+        lastname:
+          type: string
+          example: 'Kenobi'
+      required:
+        - firstname
+        - lastname
